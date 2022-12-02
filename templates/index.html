@@ -87,13 +87,14 @@
             margin: 200px 160px 270px 0px;
             cursor: pointer;
         }
-        </style>
+    </style>
+        {% load static %}
         <script type="text/javascript">
             var imgArray=new Array();
-            imgArray[0]="image/map.png";
-            imgArray[1]="image/그림1.jpg";
-            imgArray[2]="image/login.svg";
-            imgArray[3]="image/map.png";
+            imgArray[0]="{% static 'image/map.png' %}";
+            imgArray[1]="{% static 'image/그림1.jpg' %}";
+            imgArray[2]="{% static 'image/login.svg' %}";
+            imgArray[3]="{% static 'image/map.png' %}";
 
             var imgNum1 = 0
             function ShowImage() {              
