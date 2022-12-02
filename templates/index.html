@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Gugi&family=Noto+Sans+KR&display=swap');
+        
+        body {
+            background-color: #2f2748;
+            background-size:100% 100%;
+        }
+        .project_title {
+            font-family: 'Gugi';
+            color: white; 
+            font-size: 6em; 
+            line-height: 0.4em; 
+            text-align: center;
+            padding-top: 180px;
+        }
+        .choice_text {
+            font-family: 'Noto Sans KR';
+            color: white;
+            font-size: 1.5em;
+            line-height: 1.5em;
+            text-align: center;
+            padding-top: 40px;
+        }
+        .dropdown {
+            display: inline-block;
+            position: fixed;
+            font-family: 'Noto Sans KR';
+            margin-left: 1780px;
+        }
+        .dropbtn {
+            border: none;
+            background-color: #2f2748;
+            color: white;
+            padding: 10px 20px;
+            margin-top: 10px;
+            width: 90px;
+            cursor: pointer;
+            font-size: 12px;
+            text-align: center;
+        }
+        .dropdown_content {
+            display: none;
+            position: absolute;
+            z-index: 1; /*다른 요소들보다 앞에 배치*/
+            background-color: #2f2748;
+            min-width: 90px;
+            text-align: center;        
+        }
+        .dropdown_content a {
+            display: block;
+            text-decoration: none;
+            color: white;
+            font-size: 12px;
+            padding: 12px 20px;
+        }
+        .dropbtn:hover {
+            background-color: white;
+            color : black
+        }
+        .dropdown_content a:hover {
+            background-color: white;
+            color : black
+        }
+        .dropdown:hover .dropdown_content {
+            display: block;
+        }      
+        .postcard #Img1 {
+            float: left;
+            display: inline;
+            position: relative;
+            border: 8px solid white;
+            padding: 60px;
+            margin: 200px 0px 270px 160px;
+            cursor: pointer;
+        }
+        .postcard #Img2 {
+            float: right;
+            display: inline;
+            position: relative;
+            border: 8px solid white;
+            padding: 60px;
+            margin: 200px 160px 270px 0px;
+            cursor: pointer;
+        }
+        </style>
+        <script type="text/javascript">
+            var imgArray=new Array();
+            imgArray[0]="image/map.png";
+            imgArray[1]="image/그림1.jpg";
+            imgArray[2]="image/login.svg";
+            imgArray[3]="image/map.png";
+
+            var imgNum1 = 0
+            function ShowImage() {              
+                if (imgNum1<imgArray.length) {
+                    var imgNum2 = imgNum1+1; 
+                    var objImg1 = document.getElementById("Img1");
+                    var objImg2 = document.getElementById("Img2");        
+                    objImg1.src = imgArray[imgNum1];
+                    objImg2.src = imgArray[imgNum2];
+                    
+                    if (imgNum1>=imgArray.length) {
+                        clearTimeout();
+                    }
+
+                    imgNum1 += 2
+                    setTimeout("ShowImage()", 5000);
+                }   
+            }
+            var ChoiceText = document.getElementsByClassName('.postcard');
+                ChoiceText.onclick = function() {
+                    document.querySelector('.choice_text').innerHTML = "<p>오늘의 엽서를 확인하셨습니다</p><p>내일 새로운 엽서를 찾으러 와주세요<p>";
+                }
+            
+        </script>
+</head>
+<body onload="ShowImage()">
+    <div align="right" class="dropdown">     
+        <button class="dropbtn"><b>더보기</b></button>
+            <div class="dropdown_content">
+                <a href="#">지도</a>
+                <a href="#">문의하기</a>
+                <a href="#">나가기</a>            
+            </div>
+    </div>
+    <div class="project_title">
+        <p>당신이 모르는</p>
+        <p>전래동화 이야기</p>
+    </div>
+    <div class="choice_text">
+        <p>오늘의 엽서가 도착했습니다</p>
+        <p>하나의 이야기를 선택해주세요</p>
+    </div>
+        <div class="postcard" onload="ShowImage()">
+            <div>
+                <img id="Img1"  width="600" height="350">
+            </div>
+            <div>    
+                <img id="Img2"  width="600" height="350">
+            </div>
+        </div>
+</body>
