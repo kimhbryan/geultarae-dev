@@ -1,14 +1,17 @@
+{% load widget_tweaks %}
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
+    {% load static %}
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Gugi&family=Noto+Sans+KR&display=swap');
         
         body{
             background-color: #2f2748; background-size:100%100%;
-            background-image: url(image/login.svg);
+            background-image: url('{% static 'image/login.png' %}');
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center bottom;
@@ -55,7 +58,8 @@
         .submit-btn:hover {
             box-shadow: 2px 4px 5px rgba(0,0,0,0.5);
         }
-        </style>
+    </style>
+    <link rel="shortcut icon" href="{%  static 'favicon.ico' %}">
 </head>
 <body>
     <div class="project_title">
@@ -63,10 +67,11 @@
         <p>전래동화 이야기</p></li>
     </div>
     <div class="login_form">
-        <form method="post" action="">
-        <li><input type="text" name="username" class="text-field" placeholder="이름을 입력하세요" required ></li>
-        <li><input type="password" name="userpassword" class="text-field" placeholder="비밀번호를 입력하세요" required></li>
+        <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        <li>{% render_field form.username class="text-field" placeholder="이름을 입력하세요" %}</li>
+        <li>{% render_field form.password class="text-field" placeholder="비밀번호를 입력하세요" %}</li>
         <button type="submit" class="submit-btn">들어가기</button>
         </form>
-    </div>    
+    </div>
 </body>
