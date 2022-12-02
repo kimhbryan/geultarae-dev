@@ -132,3 +132,6 @@ LOGIN_URL = 'login/'
 
 # Redirect to / after login
 LOGIN_REDIRECT_URL = '/'
+
+# Use console email backend
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
