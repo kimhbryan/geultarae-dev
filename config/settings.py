@@ -126,3 +126,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Custom User model
 AUTH_USER_MODEL = 'geultarae.models.User'
+
+# Default login URL
+LOGIN_URL = 'login/'
