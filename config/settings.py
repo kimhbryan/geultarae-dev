@@ -129,3 +129,6 @@ AUTH_USER_MODEL = 'geultarae.models.User'
 
 # Default login URL
 LOGIN_URL = 'login/'
+
+# Redirect to / after login
+LOGIN_REDIRECT_URL = '/'
