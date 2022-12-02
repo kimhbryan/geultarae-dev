@@ -125,7 +125,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Custom User model
-AUTH_USER_MODEL = 'geultarae.models.User'
+AUTH_USER_MODEL = 'geultarae.User'
 
 # Default login URL
 LOGIN_URL = 'login/'
