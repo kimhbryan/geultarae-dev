@@ -3,146 +3,246 @@
 <head>
     <meta charset="UTF-8">
     <title>Main</title>
+    {% load static %}
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Gugi&family=Noto+Sans+KR&display=swap');
-        
-        body {
-            background-color: #2f2748;
-            background-size:100% 100%;
+        @font-face {
+            font-family: 'MaruBuri-Regular';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/MaruBuri-Regular.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
         }
-        .project_title {
-            font-family: 'Gugi';
-            color: white; 
-            font-size: 6em; 
-            line-height: 0.4em; 
-            text-align: center;
-            padding-top: 180px;
-        }
-        .choice_text {
-            font-family: 'Noto Sans KR';
-            color: white;
-            font-size: 1.5em;
-            line-height: 1.5em;
-            text-align: center;
-            padding-top: 40px;
-        }
-        .dropdown {
+        head {
             display: inline-block;
-            position: fixed;
-            font-family: 'Noto Sans KR';
-            margin-left: 1780px;
         }
-        .dropbtn {
-            border: none;
-            background-color: #2f2748;
-            color: white;
-            padding: 10px 20px;
-            margin-top: 10px;
-            width: 90px;
-            cursor: pointer;
-            font-size: 12px;
-            text-align: center;
-        }
-        .dropdown_content {
-            display: none;
-            position: absolute;
-            z-index: 1; /*다른 요소들보다 앞에 배치*/
-            background-color: #2f2748;
-            min-width: 90px;
-            text-align: center;        
-        }
-        .dropdown_content a {
-            display: block;
-            text-decoration: none;
-            color: white;
-            font-size: 12px;
-            padding: 12px 20px;
-        }
-        .dropbtn:hover {
-            background-color: white;
-            color : black
-        }
-        .dropdown_content a:hover {
-            background-color: white;
-            color : black
-        }
-        .dropdown:hover .dropdown_content {
-            display: block;
-        }      
-        .postcard #Img1 {
+        #logo {
             float: left;
-            display: inline;
-            position: relative;
-            border: 8px solid white;
-            padding: 60px;
-            margin: 200px 0px 270px 160px;
+            margin-left: 2%;
+        }      
+        .project_title {
+            font-family: 'MaruBuri-Regular';
+            color: black; 
+            font-size: 1.2em;  
+            text-align: left;
+            margin-left: 0.5%;
+            line-height: 0;
+            letter-spacing: 3px;
+            display: inline-block;
+        }
+        .project_subtitle {
+            font-family: 'MaruBuri-Regular';
+            color: black; 
+            font-size: 0.9em;  
+            text-align: left;
+            padding-top: 1%;
+            margin-left: 0.2%;
+            line-height: 0;
+            letter-spacing: 2px;
+            display: inline-block;
+        }
+        .upper-contents {
+            float: right;
+            background-color: transparent;
+            font-family: 'MaruBuri-Regular';
+            border: none;
             cursor: pointer;
+            font-size: 0.9em;
+            text-align: center;
+            margin-right: 4%;
+        }
+        .mypage {
+            margin-top: 3%;
+            padding: 10px 20px;
+            width: 120px;
+            float: right;
+        }
+        .ask {
+            margin-top: 3%;
+            padding: 10px 20px;
+            width: 120px;
+            float: right;
+        }
+        .logout {
+            margin-top: 3%;
+            padding: 10px 20px;
+            width: 120px;
+            float: right;
+        }
+        .mypage a {
+            text-decoration: none;
+            color: black;
+        }
+        .ask a {
+            text-decoration: none;
+            color: black;
+        }
+        .logout a {
+            text-decoration: none;
+            color: black;
+        }
+        .mypage :hover {
+            background-color: transparent;
+            border-bottom: 0.8px solid black;
+            color : black;
+            padding: 8px 12px;
+        }
+        .ask :hover {
+            background-color: transparent;
+            border-bottom: 0.8px solid black;
+            color : black;
+            padding: 8px 12px;
+        }
+        .logout :hover {
+            background-color: transparent;
+            border-bottom: 0.8px solid black;
+            color : black;
+            padding: 8px 12px;
+        }
+        body {
+            background-color: #e3e3e5;
+            background-size:100% 100%;
+            background-image: url('{% static 'image/main.svg'%}');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+        }
+        .body_title {
+            font-family: 'MaruBuri-Regular';
+            color: black; 
+            font-size: 3.5em;  
+            text-align: center;
+            line-height: 1em;
+            margin-top: 8%;
+            letter-spacing: 7px; 
+        }
+        .body_subtitle {
+            font-family: 'MaruBuri-Regular';
+            color: black; 
+            font-size: 1.2em;  
+            text-align: center;
+            line-height: 1.5em;
+            margin-top: 5%;
+        }
+        .postcard {
+            display: block;
+            text-align: center;
+            padding: 0;
+        }
+        .postcard #Img1 {
+            margin-top: 5%;
         }
         .postcard #Img2 {
-            float: right;
-            display: inline;
-            position: relative;
-            border: 8px solid white;
-            padding: 60px;
-            margin: 200px 160px 270px 0px;
+            margin-top: 5%;
+        }
+        .Img-btn {
+            display: block;
+            font-family: 'MaruBuri-Regular';
+            font-size: 1em;
+            border: 1.5px solid black;
+            color: black;
+            text-align: center;
+            letter-spacing: 1px;
+            width: 16%; 
+            padding: 20px 12px;
+            margin: 5% auto;
+            background-color: transparent;
             cursor: pointer;
         }
-    </style>
-        {% load static %}
+        .Img-btn:hover {
+            box-shadow: 2px 4px 5px rgba(0,0,0,0.5);
+        }
+        footer { 
+        display: block;
+        background-color: #2f2748;
+        color: white;
+        font-family: 'MaruBuri-Regular';
+        text-align: center;
+        font-size: 0.8em;
+        margin-top: 8%;
+        padding-top: 1%;
+        padding-bottom: 1%;
+        line-height: 1em;
+        letter-spacing: 1.5px;
+        }
+        </style>
         <script type="text/javascript">
             var imgArray=new Array();
-            imgArray[0]="{% static 'image/map.png' %}";
-            imgArray[1]="{% static 'image/그림1.jpg' %}";
-            imgArray[2]="{% static 'image/login.svg' %}";
-            imgArray[3]="{% static 'image/map.png' %}";
+            imgArray[0]="{% static 'image/그림1.svg'%}";
+            imgArray[1]="{% static 'image/그림1.svg'%}";
+            imgArray[2]="{% static 'image/그림2.png'%}";
+            imgArray[3]="{% static 'image/그림1.svg'%}";
 
             var imgNum1 = 0
-            function ShowImage() {              
+            function ShowImage() {
                 if (imgNum1<imgArray.length) {
                     var imgNum2 = imgNum1+1; 
                     var objImg1 = document.getElementById("Img1");
                     var objImg2 = document.getElementById("Img2");        
                     objImg1.src = imgArray[imgNum1];
                     objImg2.src = imgArray[imgNum2];
-                    
+
                     if (imgNum1>=imgArray.length) {
                         clearTimeout();
                     }
 
                     imgNum1 += 2
+                    btn_Disabled.disabled = false;
                     setTimeout("ShowImage()", 5000);
                 }   
             }
-            var ChoiceText = document.getElementsByClassName('.postcard');
-                ChoiceText.onclick = function() {
-                    document.querySelector('.choice_text').innerHTML = "<p>오늘의 엽서를 확인하셨습니다</p><p>내일 새로운 엽서를 찾으러 와주세요<p>";
-                }
             
+            var btn1_Disabled = document.getElementById("Img1-btn");
+            var btn2_Disabled = document.getElementById("Img2-btn");
+            
+            function btn1Disabled() {
+                btn1Disabled.disabled = true;
+            }
+            function btn2Disabled() {
+                btn1Disabled.disabled = true;
+            }
+            function btnDisabled() {
+                btn1Disabled();
+                btn2Disabled();
+            }
         </script>
-</head>
-<body onload="ShowImage()">
-    <div align="right" class="dropdown">     
-        <button class="dropbtn"><b>더보기</b></button>
-            <div class="dropdown_content">
-                <a href="#">지도</a>
-                <a href="#">문의하기</a>
-                <a href="{% url 'logout' %}?next={{ request.path }}">나가기</a>            
-            </div>
-    </div>
-    <div class="project_title">
-        <p>당신이 모르는</p>
-        <p>전래동화 이야기</p>
-    </div>
-    <div class="choice_text">
-        <p>오늘의 엽서가 도착했습니다</p>
-        <p>하나의 이야기를 선택해주세요</p>
-    </div>
-        <div class="postcard" onload="ShowImage()">
-            <div>
-                <img id="Img1"  width="600" height="350">
-            </div>
-            <div>    
-                <img id="Img2"  width="600" height="350">
-            </div>
+    
+    <div class="upper-bar">
+        <div>
+        <img id="logo" src="{% static 'image/logo.svg' %}" width="3.5%" height="auto">
         </div>
-</body>
+        <div class="project_title">
+            <b>글타래</b>
+        </div>
+        <div class="project_subtitle">
+            <p><b>: 당신이 모르는 전래동화 이야기</b></p>
+        </div>
+        <div class="upper-contents">   
+            <div class="logout"><a href="{% url 'logout' %}?next={{ request.path }}"><b>나가기</b></a></div>                
+            <div class="ask"><a href="{% url 'ask' %}"><b>문의하기</b></a></div>
+            <div class="mypage"><a href="#"><b>마이페이지</b></a></div>             
+        </div>
+    </div>
+
+</head>
+<body onload="ShowImage(); btnDisabled();">
+    <div class="body_background">
+        <div class="body_title">
+            오늘의 이야기
+        </div>
+        <div class="body_subtitle">
+            <p>매일 오전 7시에 새로운 이야기가 열립니다.</p><p>다양한 설화를 만나보세요.</p>
+        </div>
+        <div class="postcard" onload="ShowImage(); btnDisabled();">
+            <img id="Img1" width="600px" height="350px">
+            <div><a href="{% url 'login' %}" target="_blank" style="text-decoration:none"><button type="submit" id="Img1-btn" class="Img-btn" onclick="btnDisabled()"><b>첫번째 이야기를 선택해주세요</b></button></a></div>
+            <hr style="border: none; width: 60%; background-color: black; height: 1px; text-align: center;">    
+            <img id="Img2" width="600px" height="350px">
+            <div><a href="{% url 'login' %}" target="_blank" style="text-decoration:none"><button type="submit" id="Img1-btn" class="Img-btn" onclick="btnDisabled()"><b>두번째 이야기를 선택해주세요</b></button></a></div>
+        </div>
+    </body>
+    <footer>
+        <p><b>글타래</b></p>
+        <p>메일: geultarae@gmail.com</p>
+        <p><b>Copyright © 2023 geultarae. All rights reserved.</b></p>
+    </footer>
