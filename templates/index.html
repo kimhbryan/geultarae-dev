@@ -220,7 +220,7 @@
         <div class="upper-contents">   
             <div class="logout"><a href="{% url 'logout' %}?next={{ request.path }}"><b>나가기</b></a></div>                
             <div class="ask"><a href="{% url 'ask' %}"><b>문의하기</b></a></div>
-            <div class="mypage"><a href="#"><b>마이페이지</b></a></div>             
+            <div class="mypage"><a href="{% url 'mypage' %}"><b>마이페이지</b></a></div>             
         </div>
     </div>
 
@@ -235,10 +235,10 @@
         </div>
         <div class="postcard" onload="ShowImage(); btnDisabled();">
             <img id="Img1" width="600px" height="350px">
-            <div><a href="{% url 'login' %}" target="_blank" style="text-decoration:none"><button type="submit" id="Img1-btn" class="Img-btn" onclick="btnDisabled()"><b>첫번째 이야기를 선택해주세요</b></button></a></div>
+            <div><a href="{% url 'writing1' %}" target="_blank" style="text-decoration:none"><button type="submit" id="Img1-btn" class="Img-btn" onclick="btnDisabled()"><b>첫번째 이야기를 선택해주세요</b></button></a></div>
             <hr style="border: none; width: 60%; background-color: black; height: 1px; text-align: center;">    
             <img id="Img2" width="600px" height="350px">
-            <div><a href="{% url 'login' %}" target="_blank" style="text-decoration:none"><button type="submit" id="Img1-btn" class="Img-btn" onclick="btnDisabled()"><b>두번째 이야기를 선택해주세요</b></button></a></div>
+            <div><a href="{% url 'writing2' %}" target="_blank" style="text-decoration:none"><button type="submit" id="Img1-btn" class="Img-btn" onclick="btnDisabled()"><b>두번째 이야기를 선택해주세요</b></button></a></div>
         </div>
     </body>
     <footer>
