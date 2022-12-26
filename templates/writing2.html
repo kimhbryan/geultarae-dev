@@ -176,8 +176,8 @@
         </div>
         <div class="upper-contents">   
             <div class="logout"><a href="{% url 'logout' %}?next={{ request.path }}"><b>나가기</b></a></div>                
-            <div class="ask"><a href="#"><b>문의하기</b></a></div>
-            <div class="mypage"><a href="#"><b>마이페이지</b></a></div>             
+            <div class="ask"><a href="{% url 'ask' %}"><b>문의하기</b></a></div>
+            <div class="mypage"><a href="{% url 'mypage' %}"><b>마이페이지</b></a></div>             
         </div>
     </div>
 </head>
