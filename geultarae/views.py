@@ -8,3 +8,7 @@ def index(request):
 @login_required
 def ask(request):
     return render(request, 'ask.html')
+
+@login_required
+def mypage(request):
+    return render(request, 'mypage.html')
