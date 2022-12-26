@@ -129,10 +129,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'geultarae.User'
 
 # Default login URL
-LOGIN_URL = 'login/'
+LOGIN_URL = '/login/'
 
 # Redirect to / after login
 LOGIN_REDIRECT_URL = '/'
+
+# Redirect to / after logout
+LOGOUT_REDIRECT_URL = '/'
 
 # Use console email backend
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
