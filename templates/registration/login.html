@@ -90,7 +90,7 @@
     {% endif %}
     <div class="login_form">
         {% if next %}
-        <form method="post" action="/login/?next={{next}}">
+        <form method="post" action="{% url 'login' %}?next={{ next }}">
         {% else %}
         <form method="post" action="{% url 'login' %}">
         {% endif %}
