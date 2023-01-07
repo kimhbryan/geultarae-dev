@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from .forms import UserCreateForm, UserModifyForm
-from .models import User
+from .models import User, Writing
 
 
 class Admin(UserAdmin):
@@ -12,3 +12,8 @@ class Admin(UserAdmin):
 
 
 admin.site.register(User, Admin)
+
+
+@admin.register(Writing)
+class WritingAdmin(admin.ModelAdmin):
+    list_display = ('title', 'hint', 'date_available', 'is_available')
