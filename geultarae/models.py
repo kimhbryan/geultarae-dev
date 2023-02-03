@@ -5,7 +5,7 @@ from datetime import timedelta
 
 
 class User(AbstractUser):
-    pass
+    writings = models.CharField("String of ids", max_length=200, blank=True)
 
 
 class Writing(models.Model):
