@@ -27,6 +27,11 @@
             line-height: 0;
             letter-spacing: 3px;
             display: inline-block;
+            cursor: pointer;
+        }
+        .project_title a {
+            text-decoration: none;
+            color: black;
         }
         .project_subtitle {
             font-family: 'MaruBuri-Regular';
@@ -100,10 +105,9 @@
         body {
             background-color: #e3e3e5;
             background-size:100% 100%;
-            background-image: url('{% static 'image/main.svg'%}');
+            background-image: url('{% static 'image/index.svg'%}');
             background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
+            background-position: bottom center;
             margin: 0;
             padding: 0;
         }
@@ -128,11 +132,15 @@
             display: block;
             text-align: center;
             padding: 0;
+            margin-bottom: 10%;
         }
         .postcard #Img1 {
             margin-top: 5%;
         }
         .postcard #Img2 {
+            margin-top: 5%;
+        }
+        .postcard #Img3 {
             margin-top: 5%;
         }
         .Img-btn {
@@ -159,60 +167,19 @@
         font-family: 'MaruBuri-Regular';
         text-align: center;
         font-size: 0.8em;
-        margin-top: 8%;
-        padding-top: 1%;
-        padding-bottom: 1%;
+        padding-top: 2%;
+        padding-bottom: 2%;
         line-height: 1em;
         letter-spacing: 1.5px;
         }
         </style>
-        <script type="text/javascript">
-            var imgArray=new Array();
-            imgArray[0]="{% static 'image/그림1.svg'%}";
-            imgArray[1]="{% static 'image/그림1.svg'%}";
-            imgArray[2]="{% static 'image/그림2.png'%}";
-            imgArray[3]="{% static 'image/그림1.svg'%}";
-
-            var imgNum1 = 0
-            function ShowImage() {
-                if (imgNum1<imgArray.length) {
-                    var imgNum2 = imgNum1+1; 
-                    var objImg1 = document.getElementById("Img1");
-                    var objImg2 = document.getElementById("Img2");        
-                    objImg1.src = imgArray[imgNum1];
-                    objImg2.src = imgArray[imgNum2];
-
-                    if (imgNum1>=imgArray.length) {
-                        clearTimeout();
-                    }
-
-                    imgNum1 += 2
-                    btn_Disabled.disabled = false;
-                    setTimeout("ShowImage()", 5000);
-                }   
-            }
-            
-            var btn1_Disabled = document.getElementById("Img1-btn");
-            var btn2_Disabled = document.getElementById("Img2-btn");
-            
-            function btn1Disabled() {
-                btn1Disabled.disabled = true;
-            }
-            function btn2Disabled() {
-                btn1Disabled.disabled = true;
-            }
-            function btnDisabled() {
-                btn1Disabled();
-                btn2Disabled();
-            }
-        </script>
     
     <div class="upper-bar">
         <div>
         <img id="logo" src="{% static 'image/logo.svg' %}" width="3.5%" height="auto">
         </div>
         <div class="project_title">
-            <b>글타래</b>
+            <p><a href="{% url 'index' %}"><b>글타래</b></a></p>
         </div>
         <div class="project_subtitle">
             <p><b>: 당신이 모르는 전래동화 이야기</b></p>
@@ -225,20 +192,23 @@
     </div>
 
 </head>
-<body onload="ShowImage(); btnDisabled();">
+<body>
     <div class="body_background">
         <div class="body_title">
             오늘의 이야기
         </div>
         <div class="body_subtitle">
-            <p>매일 오전 7시에 새로운 이야기가 열립니다.</p><p>다양한 설화를 만나보세요.</p>
+            <p>매일 오전 7시에 새로운 이야기가 열립니다.</p><p>화면을 내려 세 가지 설화를 만나보세요.</p>
         </div>
-        <div class="postcard" onload="ShowImage(); btnDisabled();">
-            <img id="Img1" width="600px" height="350px">
-            <div><a href="writing/{{ id_1 }}/" style="text-decoration:none"><button type="submit" id="Img1-btn" class="Img-btn" onclick="btnDisabled()"><b>첫번째 이야기를 선택해주세요</b></button></a></div>
+        <div class="postcard">
+            <img id="Img1" src="{% static 'image/엽서2.svg' %}" alt="Image1" width="600px" height="350px">
+            <div><a href="writing/{{ id_1 }}" target="_blank" style="text-decoration:none"><button type="submit" id="Img1-btn" class="Img-btn"><b>첫번째 이야기를 선택해주세요</b></button></a></div>
             <hr style="border: none; width: 60%; background-color: black; height: 1px; text-align: center;">    
-            <img id="Img2" width="600px" height="350px">
-            <div><a href="writing/{{ id_2 }}/" style="text-decoration:none"><button type="submit" id="Img1-btn" class="Img-btn" onclick="btnDisabled()"><b>두번째 이야기를 선택해주세요</b></button></a></div>
+            <img id="Img2" src="{% static 'image/엽서2.svg' %}" alt="Image2" width="600px" height="350px">
+            <div><a href="writing/{{ id_2 }}" target="_blank" style="text-decoration:none"><button type="submit" id="Img1-btn" class="Img-btn"><b>두번째 이야기를 선택해주세요</b></button></a></div>
+            <hr style="border: none; width: 60%; background-color: black; height: 1px; text-align: center;">
+            <img id="Img3" src="{% static 'image/엽서2.svg' %}" alt="Image3" width="600px" height="350px">
+            <div><a href="writing/{{ id_3 }}" target="_blank" style="text-decoration:none"><button type="submit" id="Img1-btn" class="Img-btn"><b>세번째 이야기를 선택해주세요</b></button></a></div>
         </div>
     </body>
     <footer>
