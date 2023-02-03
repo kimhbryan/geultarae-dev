@@ -8,7 +8,15 @@ class Admin(UserAdmin):
     add_form = UserCreateForm
     form = UserModifyForm
     model = User
-    list_display = ["email", "username",]
+    list_display = ["email", "username", "writings"]
+    fieldsets = (
+        (None, {
+            "fields": (
+                ["writings"]
+            ),
+        }),
+    )
+    
 
 
 admin.site.register(User, Admin)
