@@ -161,18 +161,18 @@
             box-shadow: 2px 4px 5px rgba(0,0,0,0.5);
         }
         footer { 
-        display: block;
-        background-color: #2f2748;
-        color: white;
-        font-family: 'MaruBuri-Regular';
-        text-align: center;
-        font-size: 0.8em;
-        padding-top: 2%;
-        padding-bottom: 2%;
-        line-height: 1em;
-        letter-spacing: 1.5px;
+            display: block;
+            background-color: #2f2748;
+            color: white;
+            font-family: 'MaruBuri-Regular';
+            text-align: center;
+            font-size: 0.8em;
+            padding-top: 2%;
+            padding-bottom: 2%;
+            line-height: 1em;
+            letter-spacing: 1.5px;
         }
-        </style>
+    </style>
     
     <div class="upper-bar">
         <div>
@@ -187,11 +187,11 @@
         <div class="upper-contents">   
             <div class="logout"><a href="{% url 'logout' %}?next={{ request.path }}"><b>나가기</b></a></div>                
             <div class="ask"><a href="{% url 'ask' %}"><b>문의하기</b></a></div>
-            <div class="mypage"><a href="{% url 'mypage' %}"><b>마이페이지</b></a></div>             
+            <div class="mypage"><a href="{% url 'mypage' %}"><b>마이페이지</b></a></div>
         </div>
     </div>
-
 </head>
+
 <body>
     <div class="body_background">
         <div class="body_title">
@@ -210,9 +210,10 @@
             <img id="Img3" src="{% static 'image/엽서2.svg' %}" alt="Image3" width="600px" height="350px">
             <div><a href="writing/{{ id_3 }}" style="text-decoration:none"><button type="submit" id="Img1-btn" class="Img-btn"><b>세번째 이야기를 선택해주세요</b></button></a></div>
         </div>
-    </body>
-    <footer>
-        <p><b>글타래</b></p>
-        <p>메일: geultarae@gmail.com</p>
-        <p><b>Copyright © 2023 geultarae. All rights reserved.</b></p>
-    </footer>
+    </div>
+</body>
+<footer>
+    <p><b>글타래</b></p>
+    <p>메일: geultarae@gmail.com</p>
+    <p><b>Copyright © 2023 geultarae. All rights reserved.</b></p>
+</footer>
