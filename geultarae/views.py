@@ -10,7 +10,7 @@ from .models import Writing
 
 @login_required
 def index(request):
-    start_date = timezone.make_aware(datetime(2023, 2, 3, 17, 00, 00))
+    start_date = timezone.make_aware(datetime(2023, 2, 6, 17, 00, 00))
     days = (timezone.now() - start_date).days
     context = {
         'id_1': (3 * days) + 1,

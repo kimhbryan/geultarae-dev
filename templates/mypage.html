@@ -36,7 +36,7 @@
         .project_subtitle {
             font-family: 'MaruBuri-Regular';
             color: black; 
-            font-size: 0.9em;  
+            font-size: 1.1em;  
             text-align: left;
             padding-top: 1%;
             margin-left: 0.2%;
@@ -104,6 +104,7 @@
         }
         body {
             background-color: #e3e3e5;
+            background-image: url('{% static 'image/login.svg'%}');
             background-size:100% 100%;
             height: 100%;
             margin: 0;
@@ -120,8 +121,7 @@
             text-align: center;
             border: none;
             cursor: pointer;
-            background-color: #e3e3e5;
-            margin: 5% auto;
+            margin: 2% auto;
             width: 45%;
             padding: 0.5% 0;
         }
@@ -171,6 +171,12 @@
         .writing-table th:nth-child(4), td:nth-child(4) {
             width: 20%;
         }
+        .writing-btn {
+            border: none;
+            font-family: 'MaruBuri-Regular';
+            padding: 3% 4%;
+            font-weight: bold;
+        }
         footer {
             bottom: 0;
             padding-top: 2%;
@@ -186,13 +192,13 @@
     </style>
     <div class="upper-bar">
         <div>
-        <img id="logo" src="{% static 'image/logo.svg' %}" width="3.5%" height="auto">
+        <img id="logo" src="{% static 'image/logo.svg' %}" width="3%" height="auto">
         </div>
         <div class="project_title">
             <p><a href="{% url 'index' %}"><b>글타래</b></a></p>
         </div>
         <div class="project_subtitle">
-            <p><b>: 당신이 모르는 전래동화 이야기</b></p>
+            <p><b>: 옛이야기 비틀기/b></p>
         </div>
         <div class="upper-contents">   
             <div class="logout"><a href="{% url 'logout' %}?next={{ request.path }}"><b>나가기</b></a></div>                

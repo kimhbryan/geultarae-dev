@@ -28,10 +28,14 @@
             letter-spacing: 3px;
             display: inline-block;
         }
+        .project_title a {
+            text-decoration: none;
+            color: black;
+        }
         .project_subtitle {
             font-family: 'MaruBuri-Regular';
             color: black; 
-            font-size: 0.9em;  
+            font-size: 1.1em;  
             text-align: left;
             padding-top: 1%;
             margin-left: 0.2%;
@@ -107,16 +111,15 @@
             position: relative;
         }
         .writing_img {
-            margin-top: -5%;
-            left: 30%;
+            margin-top: 15%;
             position: absolute;
-            width: 40%;
+            width: 100%;
             height: auto; 
         }
         .writing_title {
             position: absolute;
-            top: 10%;
-            left: 38%;
+            margin-top: 12%;
+            left: 35%;
             font-family: 'MaruBuri-Regular';
             color: black; 
             font-size: 3.5em;  
@@ -142,7 +145,7 @@
             letter-spacing: 1px;
             width: 8%; 
             padding: 12px 12px;
-            margin: 7% auto;
+            margin: 8% auto 12% auto;
             background-color: transparent;
             cursor: pointer;
         }
@@ -166,13 +169,13 @@
     
     <div class="upper-bar">
         <div>
-            <img id="logo" src="{% static 'image/logo.svg' %}" width="3.5%" height="auto">
+            <img id="logo" src="{% static 'image/logo.svg' %}" width="3%" height="auto">
         </div>
         <div class="project_title">
-            <b>글타래</b>
+            <b><a href="{% url 'index' %}">글타래</a></b>
         </div>
         <div class="project_subtitle">
-            <p><b>: 당신이 모르는 전래동화 이야기</b></p>
+            <p><b>: 옛이야기 비틀기</b></p>
         </div>
         <div class="upper-contents">   
             <div class="logout"><a href="{% url 'logout' %}?next={{ request.path }}"><b>나가기</b></a></div>                
@@ -185,7 +188,7 @@
 <body>
     <div class="writing_body">
         <div class="writing_img">
-            <img src="{% static 'image/writing_title.png' %}">
+            <img src="{% static 'image/writing.svg' %}">
         </div>
         <div class="writing_title">
             <p>{{ writing.title }}</p>
@@ -196,7 +199,7 @@
             {{ writing.text }}
         {% endautoescape %}
     </div>
-    <button type="button" class="story-btn"><b>설화 줄거리</b></button>
+    <button type="button" class="story-btn" onclick="window.open('#', '설화 줄거리', 'width=600, height=800, scrollbars= yes, toolbar=no, menubar=no')"><b>설화 줄거리</b></button>
 </body>
 <footer>
     <p><b>글타래</b></p>

@@ -36,7 +36,7 @@
         .project_subtitle {
             font-family: 'MaruBuri-Regular';
             color: black; 
-            font-size: 0.9em;  
+            font-size: 1.1em;  
             text-align: left;
             padding-top: 1%;
             margin-left: 0.2%;
@@ -160,6 +160,9 @@
         .Img-btn:hover {
             box-shadow: 2px 4px 5px rgba(0,0,0,0.5);
         }
+        #Img3-btn {
+            margin-bottom: 25%;
+        }
         footer { 
             display: block;
             background-color: #2f2748;
@@ -176,13 +179,13 @@
     
     <div class="upper-bar">
         <div>
-        <img id="logo" src="{% static 'image/logo.svg' %}" width="3.5%" height="auto">
+        <img id="logo" src="{% static 'image/logo.svg' %}" width="3%" height="auto">
         </div>
         <div class="project_title">
             <p><a href="{% url 'index' %}"><b>글타래</b></a></p>
         </div>
         <div class="project_subtitle">
-            <p><b>: 당신이 모르는 전래동화 이야기</b></p>
+            <p><b>: 옛이야기 비틀기</b></p>
         </div>
         <div class="upper-contents">   
             <div class="logout"><a href="{% url 'logout' %}?next={{ request.path }}"><b>나가기</b></a></div>                
@@ -205,10 +208,10 @@
             <div><a href="writing/{{ id_1 }}" style="text-decoration:none"><button type="submit" id="Img1-btn" class="Img-btn"><b>첫번째 이야기를 선택해주세요</b></button></a></div>
             <hr style="border: none; width: 60%; background-color: black; height: 1px; text-align: center;">    
             <img id="Img2" src="{% static 'image/엽서2.svg' %}" alt="Image2" width="600px" height="350px">
-            <div><a href="writing/{{ id_2 }}" style="text-decoration:none"><button type="submit" id="Img1-btn" class="Img-btn"><b>두번째 이야기를 선택해주세요</b></button></a></div>
+            <div><a href="writing/{{ id_2 }}" style="text-decoration:none"><button type="submit" id="Img2-btn" class="Img-btn"><b>두번째 이야기를 선택해주세요</b></button></a></div>
             <hr style="border: none; width: 60%; background-color: black; height: 1px; text-align: center;">
             <img id="Img3" src="{% static 'image/엽서2.svg' %}" alt="Image3" width="600px" height="350px">
-            <div><a href="writing/{{ id_3 }}" style="text-decoration:none"><button type="submit" id="Img1-btn" class="Img-btn"><b>세번째 이야기를 선택해주세요</b></button></a></div>
+            <div><a href="writing/{{ id_3 }}" style="text-decoration:none"><button type="submit" id="Img3-btn" class="Img-btn"><b>세번째 이야기를 선택해주세요</b></button></a></div>
         </div>
     </div>
 </body>
