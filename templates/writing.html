@@ -114,7 +114,8 @@
             margin-top: 15%;
             position: absolute;
             width: 100%;
-            height: auto; 
+            height: auto;
+            background-size: cover; 
         }
         .writing_title {
             position: absolute;
@@ -153,15 +154,13 @@
             box-shadow: 2px 4px 5px rgba(0,0,0,0.5);
         }
         footer { 
-            display: block;
             background-color: #2f2748;
             color: white;
             font-family: 'MaruBuri-Regular';
             text-align: center;
             font-size: 0.8em;
-            margin-top: 8%;
-            padding-top: 1%;
-            padding-bottom: 1%;
+            padding-top: 2%;
+            padding-bottom: 2%;
             line-height: 1em;
             letter-spacing: 1.5px;
         }
@@ -188,7 +187,7 @@
 <body>
     <div class="writing_body">
         <div class="writing_img">
-            <img src="{% static 'image/writing.svg' %}">
+            <img src="{% static 'image/writing-title.svg' %}">
         </div>
         <div class="writing_title">
             <p>{{ writing.title }}</p>
@@ -200,9 +199,9 @@
         {% endautoescape %}
     </div>
     <button type="button" class="story-btn" onclick="window.open('#', '설화 줄거리', 'width=700, height=800, scrollbars= yes, toolbar=no, menubar=no')"><b>설화 줄거리</b></button>
+    <footer>
+        <p><b>글타래</b></p>
+        <p>메일: geultarae@gmail.com</p>
+        <p><b>Copyright © 2023 geultarae. All rights reserved.</b></p>
+    </footer>
 </body>
-<footer>
-    <p><b>글타래</b></p>
-    <p>메일: geultarae@gmail.com</p>
-    <p><b>Copyright © 2023 geultarae. All rights reserved.</b></p>
-</footer>
