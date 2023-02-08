@@ -35,22 +35,21 @@ def writing(request, pk):
     w = get_object_or_404(Writing, pk=pk)
     current_user = request.user
 
-    def already_chosen(id, chosen):
+    def cannot_choose(id, chosen):
         remaining = [i for i in range(1, 4) if i != id]
         for elm in remaining:
             if str(((id - 1) // 3) + elm) in chosen:
                 return True
         return False
 
-    if (not w.is_available) or (already_chosen(pk, current_user.writings)):
+    def already_chosen(id, chosen):
+        return str(id) in chosen
+
+    if (not w.is_available and not already_chosen) or (cannot_choose(pk, current_user.writings)):
         return HttpResponseRedirect(reverse('index'))
 
-    context = {
-        'writing': w,
-    }
-
-    if str(pk) not in current_user.writings:
+    if not already_chosen(pk, current_user.writings):
         current_user.writings += str(pk)
         current_user.save()
 
-    return render(request, 'writing.html', context=context)
+    return render(request, 'writing.html', context={'writing': w})
