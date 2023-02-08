@@ -28,6 +28,7 @@
             letter-spacing: 3px;
             display: inline-block;
             cursor: pointer;
+            padding-top: 0.7%;
         }
         .project_title a {
             text-decoration: none;
@@ -38,8 +39,6 @@
             color: black; 
             font-size: 1.1em;  
             text-align: left;
-            padding-top: 1%;
-            margin-left: 0.2%;
             line-height: 0;
             letter-spacing: 2px;
             display: inline-block;
@@ -176,6 +175,7 @@
             font-family: 'MaruBuri-Regular';
             padding: 3% 4%;
             font-weight: bold;
+            cursor: pointer;
         }
         footer {
             bottom: 0;
@@ -192,13 +192,13 @@
     </style>
     <div class="upper-bar">
         <div>
-        <img id="logo" src="{% static 'image/logo.svg' %}" width="3%" height="auto">
+        <img id="logo" src="{% static 'image/logo.svg' %}" width="2.5%" height="auto">
         </div>
         <div class="project_title">
             <p><a href="{% url 'index' %}"><b>글타래</b></a></p>
         </div>
         <div class="project_subtitle">
-            <p><b>: 옛이야기 비틀기/b></p>
+            <p><b>: 옛이야기 비틀기</b></p>
         </div>
         <div class="upper-contents">   
             <div class="logout"><a href="{% url 'logout' %}?next={{ request.path }}"><b>나가기</b></a></div>                

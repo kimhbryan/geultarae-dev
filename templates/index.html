@@ -28,6 +28,7 @@
             letter-spacing: 3px;
             display: inline-block;
             cursor: pointer;
+            padding-top: 0.7%;
         }
         .project_title a {
             text-decoration: none;
@@ -38,8 +39,6 @@
             color: black; 
             font-size: 1.1em;  
             text-align: left;
-            padding-top: 1%;
-            margin-left: 0.2%;
             line-height: 0;
             letter-spacing: 2px;
             display: inline-block;
@@ -104,10 +103,10 @@
         }
         body {
             background-color: #e3e3e5;
-            background-size:100% 100%;
+            background-size:100% 95%;
             background-image: url('{% static 'image/index.svg'%}');
             background-repeat: no-repeat;
-            background-position: bottom center;
+            background-position: center bottom;
             margin: 0;
             padding: 0;
         }
@@ -132,16 +131,91 @@
             display: block;
             text-align: center;
             padding: 0;
-            margin-bottom: 10%;
+            position: relative;
         }
-        .postcard #Img1 {
+        .Img1 {
             margin-top: 5%;
+            position: relative;
+            width: 27%; 
+            height: 17%;
+            left: 36.5%;
         }
-        .postcard #Img2 {
+        .Img2 {
             margin-top: 5%;
+            position: relative;
+            width: 27%; 
+            height: 17%;
+            left: 36.5%;
         }
-        .postcard #Img3 {
+        .Img3 {
             margin-top: 5%;
+            position: relative;
+            width: 27%; 
+            height: 17%;
+            left: 36.5%;
+        }
+        #hide1 {
+            background-color: black;
+            opacity: 0;
+            width: 100%; 
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0%; 
+            font-family: 'MaruBuri-Regular'; 
+            font-size: 1.1em;
+            font-weight: bold;  
+            text-align: center;
+            color: white;
+        }
+        #hide2 {
+            background-color: black;
+            opacity: 0;
+            width: 100%; 
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0%; 
+            font-family: 'MaruBuri-Regular'; 
+            font-size: 1.1em;
+            font-weight: bold;  
+            text-align: center;
+            color: white;
+        }
+        #hide3 {
+            background-color: black;
+            opacity: 0;
+            width: 100%; 
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0%; 
+            font-family: 'MaruBuri-Regular'; 
+            font-size: 1.1em;
+            font-weight: bold;  
+            text-align: center;
+            color: white;
+        }
+        #hint1 {
+            position: relative;
+            top: 50%;
+        }
+        #hint2 {
+            position: relative;
+            top: 50%;
+        }
+        #hint3 {
+            position: relative;
+            top: 50%;
+        }
+        .Img1:hover #hide1{
+            opacity: 0.8;
+        }
+        .Img2:hover #hide2 {
+            opacity: 0.8;
+        }
+        .Img3:hover #hide3 {
+            opacity: 0.8;
         }
         .Img-btn {
             display: block;
@@ -151,7 +225,7 @@
             color: black;
             text-align: center;
             letter-spacing: 1px;
-            width: 16%; 
+            width: 12%; 
             padding: 20px 12px;
             margin: 5% auto;
             background-color: transparent;
@@ -161,10 +235,9 @@
             box-shadow: 2px 4px 5px rgba(0,0,0,0.5);
         }
         #Img3-btn {
-            margin-bottom: 25%;
+            margin-bottom: 23%;
         }
         footer { 
-            display: block;
             background-color: #2f2748;
             color: white;
             font-family: 'MaruBuri-Regular';
@@ -179,7 +252,7 @@
     
     <div class="upper-bar">
         <div>
-        <img id="logo" src="{% static 'image/logo.svg' %}" width="3%" height="auto">
+        <img id="logo" src="{% static 'image/logo.svg' %}" width="2.5%" height="auto">
         </div>
         <div class="project_title">
             <p><a href="{% url 'index' %}"><b>글타래</b></a></p>
@@ -203,20 +276,35 @@
         <div class="body_subtitle">
             <p>매일 오전 7시에 새로운 이야기가 열립니다.</p><p>화면을 내려 세 가지 설화를 만나보세요.</p>
         </div>
-        <div class="postcard">
-            <img id="Img1" src="{% static 'image/엽서2.svg' %}" alt="Image1" width="600px" height="350px">
-            <div><a href="writing/{{ id_1 }}" style="text-decoration:none"><button type="submit" id="Img1-btn" class="Img-btn"><b>첫번째 이야기를 선택해주세요</b></button></a></div>
-            <hr style="border: none; width: 60%; background-color: black; height: 1px; text-align: center;">    
-            <img id="Img2" src="{% static 'image/엽서2.svg' %}" alt="Image2" width="600px" height="350px">
-            <div><a href="writing/{{ id_2 }}" style="text-decoration:none"><button type="submit" id="Img2-btn" class="Img-btn"><b>두번째 이야기를 선택해주세요</b></button></a></div>
+        <div class="postcard">    
+            <div class="Img1">
+                <img id="Img1" src="{% static 'image/엽서2.svg' %}" alt="Image1">
+                <div id="hide1">
+                    <div id="hint1">힌트1</div>
+                </div>
+            </div>
+            <div><a href="writing/{{ id_1 }}" style="text-decoration:none"><button type="submit" id="Img1-btn" class="Img-btn"><b>첫번째 이야기</b></button></a></div>
             <hr style="border: none; width: 60%; background-color: black; height: 1px; text-align: center;">
-            <img id="Img3" src="{% static 'image/엽서2.svg' %}" alt="Image3" width="600px" height="350px">
-            <div><a href="writing/{{ id_3 }}" style="text-decoration:none"><button type="submit" id="Img3-btn" class="Img-btn"><b>세번째 이야기를 선택해주세요</b></button></a></div>
+            <div class="Img2">
+                <img id="Img2" src="{% static 'image/엽서2.svg' %}" alt="Image2">
+                <div id="hide2">
+                    <div id="hint2">힌트2</div>
+                </div>
+            </div>
+            <div><a href="writing/{{ id_2 }}" style="text-decoration:none"><button type="submit" id="Img2-btn" class="Img-btn"><b>두번째 이야기</b></button></a></div>
+            <hr style="border: none; width: 60%; background-color: black; height: 1px; text-align: center;">
+            <div class="Img3">
+                <img id="Img3" src="{% static 'image/엽서2.svg' %}" alt="Image3">
+                <div id="hide3">
+                    <div id="hint3">힌트3</div>
+                </div>
+            </div>
+            <div><a href="writing/{{ id_3 }}" style="text-decoration:none"><button type="submit" id="Img3-btn" class="Img-btn"><b>세번째 이야기</b></button></a></div>  
         </div>
     </div>
+    <footer>
+        <p><b>글타래</b></p>
+        <p>메일: geultarae@gmail.com</p>
+        <p><b>Copyright © 2023 geultarae. All rights reserved.</b></p>
+    </footer>
 </body>
-<footer>
-    <p><b>글타래</b></p>
-    <p>메일: geultarae@gmail.com</p>
-    <p><b>Copyright © 2023 geultarae. All rights reserved.</b></p>
-</footer>
