@@ -45,7 +45,7 @@ def writing(request, pk):
     def already_chosen(id, chosen):
         return str(id) in chosen
 
-    if (not w.is_available and not already_chosen) or (cannot_choose(pk, current_user.writings)):
+    if (not w.is_available and not already_chosen(pk, current_user.writings)) or (cannot_choose(pk, current_user.writings)):
         return HttpResponseRedirect(reverse('index'))
 
     if not already_chosen(pk, current_user.writings):
@@ -53,3 +53,17 @@ def writing(request, pk):
         current_user.save()
 
     return render(request, 'writing.html', context={'writing': w})
+
+
+@login_required
+def plot(request, pk):
+    w = get_object_or_404(Writing, pk=pk)
+    current_user = request.user
+
+    def already_chosen(id, chosen):
+        return str(id) in chosen
+
+    if not already_chosen(pk, current_user.writings):
+        return HttpResponseRedirect(reverse('index'))
+
+    return render(request, 'plot.html', context={'writing': w})
