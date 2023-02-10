@@ -13,6 +13,7 @@
         }
         head {
             display: inline-block;
+            position: relative;
         }
         #logo {
             float: left;
@@ -101,25 +102,20 @@
             color : black;
             padding: 8px 12px;
         }
-        body {
-            background-image: linear-gradient(to bottom, #e3e3e5 28%, white 28%);
-            background-size:100% 100%;
-            margin: 0;
-            padding: 0;
-        }
         .writing_body {
-            position: relative;
+            margin-top: 5%;
         }
         .writing_img {
-            margin-top: 15%;
             position: absolute;
+            top: 21%;
+            left: 0%;
             width: 100%;
             height: auto;
-            background-size: cover; 
+            background-size: cover;
         }
         .writing_title {
             position: absolute;
-            margin-top: 12%;
+            top: 16%;
             left: 35%;
             font-family: 'MaruBuri-Regular';
             color: black; 
@@ -127,9 +123,15 @@
             text-align: center;
             letter-spacing: 7px;
         }
+        body {
+            background-image: linear-gradient(to bottom, #e3e3e5 330px, white 330px);
+            background-size:100% 100%;
+            margin: 0;
+            padding: 0;
+        }
         .writing {
-            padding: 15% 0% 0% 35%;
-            margin: 12% 0 0 0;
+            padding: 10% 0% 0% 35%;
+            margin: 10% 0 0 0;
             font-family: 'MaruBuri-Regular';
             color: black; 
             font-size: 1.1em;  
@@ -181,18 +183,18 @@
             <div class="ask"><a href="{% url 'ask' %}"><b>문의하기</b></a></div>
             <div class="mypage"><a href="{% url 'mypage' %}"><b>마이페이지</b></a></div>             
         </div>
+        <div class="writing_body">
+            <div class="writing_img">
+                <img src="{% static 'image/writing-title.svg' %}">
+            </div>
+            <div class="writing_title">
+                <p>{{ writing.title }}</p>
+            </div>
+        </div>
     </div>
 </head>
 
 <body>
-    <div class="writing_body">
-        <div class="writing_img">
-            <img src="{% static 'image/writing-title.svg' %}">
-        </div>
-        <div class="writing_title">
-            <p>{{ writing.title }}</p>
-        </div>
-    </div>
     <div class="writing">
         {% autoescape off %}
             {{ writing.text }}
