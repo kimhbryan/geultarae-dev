@@ -40,11 +40,12 @@
 <body>
     <div class="content">
         <div class="plot-title">
-            두꺼비 설화
+            {{ writing.title }}
         </div>
         <div class="plot-story">
-        <p>옛날 옛적에.....dkjfsklfjskdljfkfjsdkfjskfmsdklfmslkf</p>
-        <p>dkfjlksfnmdlskfjfjkelmlf그래서ㅣ아ㅣㅏㅇ</p>
+            {% autoescape off %}
+                {{ writing.plot }}
+            {% endautoescape %}
         </div>
     </div>
 </body>
