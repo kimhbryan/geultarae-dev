@@ -88,8 +88,11 @@ def ask(request):
                 )
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
+            return HttpResponseRedirect('/ask/done/')
 
-    return HttpResponseRedirect('/ask/done/')
+    form = AskForm()
+    return render(request, 'ask.html', {'form': form})
+
 
 @login_required
 def ask_done(request):
