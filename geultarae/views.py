@@ -1,11 +1,13 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 from django.utils import timezone
+from django.core.mail import BadHeaderError, send_mail
 from datetime import datetime
 
 from .models import Writing
+from .forms import AskForm
 
 
 @login_required
@@ -67,3 +69,28 @@ def plot(request, pk):
         return HttpResponseRedirect(reverse('index'))
 
     return render(request, 'plot.html', context={'writing': w})
+
+
+@login_required
+def ask(request):
+    if request.method == "POST":
+        form = AskForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data["name"]
+            from_email = form.cleaned_data["from_email"]
+            message = form.cleaned_data["message"]
+            try:
+                send_mail(
+                    f"Inquiry from {name} ({from_email})",
+                    message,
+                    from_email,
+                    ['skeinofwords@gmail.com']
+                )
+            except BadHeaderError:
+                return HttpResponse('Invalid header found.')
+
+    return HttpResponseRedirect('/ask/done/')
+
+@login_required
+def ask_done(request):
+    return render(request, 'ask_done.html')
