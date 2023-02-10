@@ -12,11 +12,10 @@ class Admin(UserAdmin):
     fieldsets = (
         (None, {
             "fields": (
-                ["writings"]
+                ["writings", "email"]
             ),
         }),
     )
-    
 
 
 admin.site.register(User, Admin)
