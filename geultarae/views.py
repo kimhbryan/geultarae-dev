@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponseRedirect, HttpResponse, Http404
 from django.urls import reverse
 from django.utils import timezone
 from django.core.mail import BadHeaderError, send_mail
@@ -29,7 +29,27 @@ def ask(request):
 
 @login_required
 def mypage(request):
-    return render(request, 'mypage.html')
+    cur_user = request.user
+
+    datas = {}
+    for i in cur_user.writings:
+        w = get_object_or_404(Writing, pk=i)
+        title = w.title
+        date = f"{w.date_available.month}/{w.date_available.day}"
+        datas[(int(i) // 3) + 1] = {
+            "title": title,
+            "date": date,
+            "link": f"/writing/{i}"
+        }
+
+    for i in range(len(cur_user.writings) + 1, 15):
+        datas[i] = {
+            "title": "아직 선택하지 않음",
+            "date": "1/1",
+            "link": "#"
+        }
+
+    return render(request, 'mypage.html', {'datas': datas})
 
 
 @login_required
