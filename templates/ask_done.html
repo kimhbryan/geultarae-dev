@@ -1,0 +1,168 @@
+{% load widget_tweaks %}
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Ask</title>
+    {% load static %}
+    <style>
+        @font-face {
+            font-family: 'MaruBuri-Regular';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/MaruBuri-Regular.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        head {
+            display: inline-block;
+        }
+        #logo {
+            float: left;
+            margin-left: 2%;
+        }      
+        .project_title {
+            font-family: 'MaruBuri-Regular';
+            color: black; 
+            font-size: 1.2em;  
+            text-align: left;
+            margin-left: 0.5%;
+            line-height: 0;
+            letter-spacing: 3px;
+            display: inline-block;
+            cursor: pointer;
+            padding-top: 0.7%;
+        }
+        .project_title a {
+            text-decoration: none;
+            color: black;
+        }
+        .project_subtitle {
+            font-family: 'MaruBuri-Regular';
+            color: black; 
+            font-size: 1.1em;  
+            text-align: left;
+            line-height: 0;
+            letter-spacing: 2px;
+            display: inline-block;
+        }
+        .upper-contents {
+            float: right;
+            background-color: transparent;
+            font-family: 'MaruBuri-Regular';
+            border: none;
+            cursor: pointer;
+            font-size: 0.9em;
+            text-align: center;
+            margin-right: 4%;
+        }
+        .mypage {
+            margin-top: 3%;
+            padding: 10px 20px;
+            width: 120px;
+            float: right;
+        }
+        .ask {
+            margin-top: 3%;
+            padding: 10px 20px;
+            width: 120px;
+            float: right;
+        }
+        .logout {
+            margin-top: 3%;
+            padding: 10px 20px;
+            width: 120px;
+            float: right;
+        }
+        .mypage a {
+            text-decoration: none;
+            color: black;
+        }
+        .ask a {
+            text-decoration: none;
+            color: black;
+        }
+        .logout a {
+            text-decoration: none;
+            color: black;
+        }
+        .mypage :hover {
+            background-color: transparent;
+            border-bottom: 0.8px solid black;
+            color : black;
+            padding: 8px 12px;
+        }
+        .ask :hover {
+            background-color: transparent;
+            border-bottom: 0.8px solid black;
+            color : black;
+            padding: 8px 12px;
+        }
+        .logout :hover {
+            background-color: transparent;
+            border-bottom: 0.8px solid black;
+            color : black;
+            padding: 8px 12px;
+        }
+        body {
+            background-color: #e3e3e5;
+            background-size:100% 100%;
+            background-image: url('{% static 'image/login.svg'%}');
+            background-repeat: no-repeat;
+            background-position: bottom center;
+            margin: 0;
+            padding: 0;
+        }
+        .body_title {
+            font-family: 'MaruBuri-Regular';
+            color: black; 
+            font-size: 3.5em;  
+            text-align: center;
+            line-height: 1em;
+            margin-top: 8%;
+            letter-spacing: 7px; 
+        }
+        footer { 
+            display: block;
+            background-color: #2f2748;
+            color: white;
+            font-family: 'MaruBuri-Regular';
+            text-align: center;
+            font-size: 0.8em;
+            margin-top: 6%;
+            padding-top: 1%;
+            padding-bottom: 1%;
+            line-height: 1em;
+            letter-spacing: 1.5px;
+        }
+    </style>
+      
+    <div class="upper-bar">
+        <div>
+            <img id="logo" src="{% static 'image/logo.svg' %}" width="2.5%" height="auto">
+        </div>
+        <div class="project_title">
+            <p><a href="{% url 'index' %}"><b>글타래</b></a></p>
+        </div>
+        <div class="project_subtitle">
+            <p><b>: 옛이야기 비틀기</b></p>
+        </div>
+        <div class="upper-contents">   
+            <div class="logout"><a href="{% url 'logout' %}?next={{ request.path }}"><b>나가기</b></a></div>                
+            <div class="ask"><a href="{% url 'ask' %}"><b>문의하기</b></a></div>
+            <div class="mypage"><a href="{% url 'mypage' %}"><b>마이페이지</b></a></div>             
+        </div>
+    </div>
+</head>
+<body>
+    <div class="ask_form">
+        <div class="body_title">
+            <p>문의가 전송되었습니다.</p>
+            <p>감사합니다.</p>
+        </div>
+    </div>
+</body>
+<footer>
+    <p><b>글타래</b></p>
+    <p>메일: geultarae@gmail.com</p>
+    <p><b>Copyright © 2023 geultarae. All rights reserved.</b></p>
+</footer>
