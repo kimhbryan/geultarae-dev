@@ -1,3 +1,5 @@
+{% load widget_tweaks %}
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -183,17 +185,17 @@
             box-shadow: 2px 4px 5px rgba(0,0,0,0.5);
         }
         footer { 
-        display: block;
-        background-color: #2f2748;
-        color: white;
-        font-family: 'MaruBuri-Regular';
-        text-align: center;
-        font-size: 0.8em;
-        margin-top: 6%;
-        padding-top: 1%;
-        padding-bottom: 1%;
-        line-height: 1em;
-        letter-spacing: 1.5px;
+            display: block;
+            background-color: #2f2748;
+            color: white;
+            font-family: 'MaruBuri-Regular';
+            text-align: center;
+            font-size: 0.8em;
+            margin-top: 6%;
+            padding-top: 1%;
+            padding-bottom: 1%;
+            line-height: 1em;
+            letter-spacing: 1.5px;
         }
     </style>
       
@@ -219,14 +221,12 @@
         <div class="body_title">
             <p>문의하기</p>
         </div>
-        <form class="gform" method="POST" data-email="skeinofwords@gmail.com" action="https://script.google.com/macros/s/AKfycbwwIpfTwAscRPT1n9A1j2yHBaB6lv7HAmiRWNx7NIQNtpIP5Hwkx-yBXZC2KthOhe5F/exec">
-            <p><a style="color: white; font-family: 'MaruBuri-Regular'; font-size: 1em;"></a>
-                <input type="text" name="askName" class="askName" size="15" placeholder="이름" required>
-            <a style="color: white; font-family: 'MaruBuri-Regular'; font-size: 1em;"></a>
-                <input type="email" name="askEmail" class="askEmail" size="40" placeholder="메일(ex)id@email.com)" required></p>
-            <p><textarea name="askContext" class="askContext" rows="15" cols="60" placeholder="내용" required></textarea></p>
-            <button type="submit" class="askConfirm" name="askConfirm" onclick="alert('문의 내용이 전송되었습니다.')"><b>확인하기</b></button>    
-            </div>
+        <form class="gform" method="POST">
+            {% csrf_token %}
+            {% render_field form.name class="askName" placeholder="이름" %}
+            {% render_field form.from_email class="askEmail" placeholder="메일" %}
+            <p>{% render_field form.message class="askContext" placeholder="내용" %}</p>
+            <button type="submit" class="askConfirm"><b>확인하기</b></button>
         </form>
     </div>
 </body>
