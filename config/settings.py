@@ -137,9 +137,6 @@ LOGIN_REDIRECT_URL = '/'
 # Redirect to / after logout
 LOGOUT_REDIRECT_URL = '/'
 
-# Use console email backend
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
 # Use SMTP email backend
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
