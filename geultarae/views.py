@@ -1,13 +1,14 @@
-from django.shortcuts import render, get_object_or_404
-from django.contrib.auth.decorators import login_required
-from django.http import HttpResponseRedirect, HttpResponse, Http404
-from django.urls import reverse
-from django.utils import timezone
-from django.core.mail import BadHeaderError, send_mail
 from datetime import datetime
 
-from .models import Writing
+from django.contrib.auth.decorators import login_required
+from django.core.mail import BadHeaderError, send_mail
+from django.http import Http404, HttpResponse, HttpResponseRedirect
+from django.shortcuts import get_object_or_404, render
+from django.urls import reverse
+from django.utils import timezone
+
 from .forms import AskForm
+from .models import Writing
 
 
 @login_required

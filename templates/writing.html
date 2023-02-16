@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <title>글타래 - {{ writing.title }}</title>
@@ -11,18 +12,21 @@
             font-weight: normal;
             font-style: normal;
         }
+
         head {
             display: inline-block;
             position: relative;
         }
+
         #logo {
             float: left;
             margin-left: 2%;
-        }      
+        }
+
         .project_title {
             font-family: 'MaruBuri-Regular';
-            color: black; 
-            font-size: 1.2em;  
+            color: black;
+            font-size: 1.2em;
             text-align: left;
             margin-left: 0.5%;
             line-height: 0;
@@ -31,19 +35,22 @@
             cursor: pointer;
             padding-top: 0.7%;
         }
+
         .project_title a {
             text-decoration: none;
             color: black;
         }
+
         .project_subtitle {
             font-family: 'MaruBuri-Regular';
-            color: black; 
-            font-size: 1.1em;  
+            color: black;
+            font-size: 1.1em;
             text-align: left;
             line-height: 0;
             letter-spacing: 2px;
             display: inline-block;
         }
+
         .upper-contents {
             float: right;
             background-color: transparent;
@@ -54,57 +61,68 @@
             text-align: center;
             margin-right: 4%;
         }
+
         .mypage {
             margin-top: 3%;
             padding: 10px 20px;
             width: 120px;
             float: right;
         }
+
         .ask {
             margin-top: 3%;
             padding: 10px 20px;
             width: 120px;
             float: right;
         }
+
         .logout {
             margin-top: 3%;
             padding: 10px 20px;
             width: 120px;
             float: right;
         }
+
         .mypage a {
             text-decoration: none;
             color: black;
         }
+
         .ask a {
             text-decoration: none;
             color: black;
         }
+
         .logout a {
             text-decoration: none;
             color: black;
         }
+
         .mypage :hover {
             background-color: transparent;
             border-bottom: 0.8px solid black;
-            color : black;
+            color: black;
             padding: 8px 12px;
         }
+
         .ask :hover {
             background-color: transparent;
             border-bottom: 0.8px solid black;
-            color : black;
+            color: black;
             padding: 8px 12px;
         }
+
         .logout :hover {
             background-color: transparent;
             border-bottom: 0.8px solid black;
-            color : black;
+            color: black;
             padding: 8px 12px;
         }
+
         .writing_body {
             margin-top: 5%;
         }
+
         .writing_img {
             position: absolute;
             top: 21%;
@@ -113,31 +131,35 @@
             height: auto;
             background-size: cover;
         }
+
         .writing_title {
             position: absolute;
             top: 16%;
             left: 35%;
             font-family: 'MaruBuri-Regular';
-            color: black; 
-            font-size: 3.5em;  
+            color: black;
+            font-size: 3.5em;
             text-align: center;
             letter-spacing: 7px;
         }
+
         body {
             background-image: linear-gradient(to bottom, #e3e3e5 330px, white 330px);
-            background-size:100% 100%;
+            background-size: 100% 100%;
             margin: 0;
             padding: 0;
         }
+
         .writing {
             padding: 10% 0% 0% 35%;
             margin: 10% 0 0 0;
             font-family: 'MaruBuri-Regular';
-            color: black; 
-            font-size: 1.1em;  
+            color: black;
+            font-size: 1.1em;
             text-align: left;
             line-height: 2em;
         }
+
         .story-btn {
             display: block;
             font-family: 'MaruBuri-Regular';
@@ -146,16 +168,18 @@
             color: black;
             text-align: center;
             letter-spacing: 1px;
-            width: 8%; 
+            width: 8%;
             padding: 12px 12px;
             margin: 8% auto 12% auto;
             background-color: transparent;
             cursor: pointer;
         }
+
         .story-btn:hover {
-            box-shadow: 2px 4px 5px rgba(0,0,0,0.5);
+            box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.5);
         }
-        footer { 
+
+        footer {
             background-color: #2f2748;
             color: white;
             font-family: 'MaruBuri-Regular';
@@ -167,10 +191,20 @@
             letter-spacing: 1.5px;
         }
     </style>
-    
+
+    <script>
+        function openPlot() {
+            window.open(
+                '{% url "plot" writing.id %}',
+                '설화 줄거리',
+                'width=700, height=800, scrollbars=yes, toolbar=no, menubar=no'
+            );
+        }
+    </script>
+
     <div class="upper-bar">
         <div>
-        <img id="logo" src="{% static 'image/logo.svg' %}" width="2.5%" height="auto">
+            <img id="logo" src="{% static 'image/logo.svg' %}" width="2.5%" height="auto">
         </div>
         <div class="project_title">
             <p><a href="{% url 'index' %}"><b>글타래</b></a></p>
@@ -178,10 +212,10 @@
         <div class="project_subtitle">
             <p><b>: 옛이야기 비틀기</b></p>
         </div>
-        <div class="upper-contents">   
-            <div class="logout"><a href="{% url 'logout' %}?next={{ request.path }}"><b>나가기</b></a></div>                
+        <div class="upper-contents">
+            <div class="logout"><a href="{% url 'logout' %}?next={{ request.path }}"><b>나가기</b></a></div>
             <div class="ask"><a href="{% url 'ask' %}"><b>문의하기</b></a></div>
-            <div class="mypage"><a href="{% url 'mypage' %}"><b>마이페이지</b></a></div>             
+            <div class="mypage"><a href="{% url 'mypage' %}"><b>마이페이지</b></a></div>
         </div>
         <div class="writing_body">
             <div class="writing_img">
@@ -200,10 +234,14 @@
             {{ writing.text }}
         {% endautoescape %}
     </div>
-    <button type="button" class="story-btn" onclick="window.open('{% url "plot" writing.id %}', '설화 줄거리', 'width=700, height=800, scrollbars= yes, toolbar=no, menubar=no')"><b>설화 줄거리</b></button>
+    <button type="button" class="story-btn" onclick="openPlot()">
+        <b>설화 줄거리</b>
+    </button>
     <footer>
         <p><b>글타래</b></p>
         <p>메일: geultarae@gmail.com</p>
         <p><b>Copyright © 2023 geultarae. All rights reserved.</b></p>
     </footer>
 </body>
+
+</html>

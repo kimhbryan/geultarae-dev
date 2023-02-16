@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
@@ -12,16 +13,18 @@
             src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/MaruBuri-Regular.woff') format('woff');
             font-weight: normal;
             font-style: normal;
-        } 
-        body{
-            background-color: #e3e3e5; 
+        }
+
+        body {
+            background-color: #e3e3e5;
             background-size: 100% 100%;
-            background-image: url('{% static 'image/login.svg'%}');
+            background-image: url("{% static 'image/login.svg'%}");
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center bottom;
             background-attachment: fixed;
         }
+
         .project_title {
             font-family: 'MaruBuri-Regular';
             color: black;
@@ -31,6 +34,7 @@
             margin-top: 7%;
             list-style-type: none;
         }
+
         .project_subtitle {
             font-family: 'MaruBuri-Regular';
             color: black;
@@ -38,6 +42,7 @@
             text-align: center;
             margin-top: 2%;
         }
+
         .login_form {
             font-family: 'MaruBuri-Regular';
             font-size: 1em;
@@ -45,6 +50,7 @@
             margin-top: 3%;
             list-style-type: none;
         }
+
         li .text-field {
             margin: 1% auto;
             width: 12%;
@@ -57,6 +63,7 @@
             color: black;
             background-color: #e3e3e5;
         }
+
         .submit-btn {
             font-family: 'MaruBuri-Regular';
             color: black;
@@ -69,21 +76,29 @@
             margin-top: 60px;
             cursor: pointer;
         }
+
         .submit-btn:hover {
-            box-shadow: 2px 4px 5px rgba(0,0,0,0.5);
+            box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.5);
         }
     </style>
     <link rel="shortcut icon" href="{% static 'favicon.ico' %}">
 </head>
+
 <body>
     <div class="project_title">
-        <li><p>글</p><p>타</p><p>래</p></li>
+        <li>
+            <p>글</p>
+            <p>타</p>
+            <p>래</p>
+        </li>
     </div>
     <div class="project_subtitle">
         <p>: 옛이야기 비틀기</p>
     </div>
     {% if form.errors %}
-    <p align="center" style="color: black; font-family: 'MaruBuri-Regular'; font-size: 0.8em; margin: 0; padding-top: 2%;"><b>이름 혹은 비밀번호가 일치하지 않습니다. 다시 입력해주세요.</b></p>
+    <p align="center" style="color: black; font-family: 'MaruBuri-Regular'; font-size: 0.8em; margin: 0; padding-top: 2%;">
+        <b>이름 혹은 비밀번호가 일치하지 않습니다. 다시 입력해주세요.</b>
+    </p>
     {% endif %}
     <div class="login_form">
         {% if next %}
@@ -92,11 +107,16 @@
         <form method="post" action="{% url 'login' %}">
         {% endif %}
         {% csrf_token %}
-        <li>{% render_field form.username class="text-field" placeholder="이름을 입력하세요" %}</li>
-        <li>{% render_field form.password class="text-field" placeholder="비밀번호를 입력하세요" %}</li>
-        <button type="submit" class="submit-btn"><b>입장하기</b></button>
+            <li>{% render_field form.username class="text-field" placeholder="이름을 입력하세요" %}</li>
+            <li>{% render_field form.password class="text-field" placeholder="비밀번호를 입력하세요" %}</li>
+            <button type="submit" class="submit-btn"><b>입장하기</b></button>
         </form>
-        <p><a style="color: black; font-family: 'MaruBuri-Regular'; font-size: 0.8em;" href="{% url 'password_reset' %}"><b>비밀번호를 잃어버리셨습니까?</b></a></p>
+        <p>
+            <a style="color: black; font-family: 'MaruBuri-Regular'; font-size: 0.8em;" href="{% url 'password_reset' %}">
+                <b>비밀번호를 잃어버리셨습니까?</b>
+            </a>
+        </p>
     </div>
 </body>
+
 </html>

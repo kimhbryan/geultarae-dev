@@ -1,28 +1,33 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <title>Signup</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Gugi&family=Noto+Sans+KR&display=swap');
-        
-        body{
-            background-color: #2f2748; background-size:100%100%;
+
+        body {
+            background-color: #2f2748;
+            background-size: 100%100%;
         }
+
         .project_title {
             font-family: 'Gugi';
-            color: white; 
-            font-size: 5em; 
-            line-height: 0.5em; 
+            color: white;
+            font-size: 5em;
+            line-height: 0.5em;
             text-align: center;
             padding-top: 120px;
             list-style-type: none;
         }
-        .signup_form { 
+
+        .signup_form {
             margin-top: 10px;
-            text-align: center; 
-            list-style-type: none;            
+            text-align: center;
+            list-style-type: none;
         }
+
         .text-field {
             width: 15%;
             padding: 12px;
@@ -30,15 +35,16 @@
             border: none;
             border-bottom: 0.8px solid white;
             font-family: 'Noto Sans KR';
-            font-size: 1em; 
+            font-size: 1em;
             color: white;
             background-color: #2f2748;
         }
+
         .submit-btn {
-            font-family: 'Noto Sans KR'; 
+            font-family: 'Noto Sans KR';
             color: white;
             font-size: 1em;
-            width: 10%; 
+            width: 10%;
             padding: 10px 24px;
             background-color: transparent;
             border: 0.8px solid white;
@@ -46,24 +52,30 @@
             margin-top: 60px;
             cursor: pointer;
         }
+
         .submit-btn:hover {
-            box-shadow: 2px 4px 5px rgba(0,0,0,0.5);
+            box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.5);
         }
     </style>
 </head>
+
 <body>
     <div class="project_title">
         <li>당신이 모르는 전래동화 이야기
-        <p>회원가입</p></li>
+            <p>회원가입</p>
+        </li>
     </div>
     <div class="signup_form">
         <form>
-        <li><input type="text" name="username" class="text-field" placeholder="이름을 입력하세요" required ></li>
-        <li><input type="password" name="userpassword" class="text-field" placeholder="비밀번호를 입력하세요" required></li>
-        <li><input type="password2" name="userpassword" class="text-field" placeholder="비밀번호를 다시 입력하세요" required></li>
-        <li><input type="email" name="email" class="text-field" placeholder="이메일을 입력하세요" required></li>
-        <li><input type="text" name="number" class="text-field" placeholder="확인번호 5자리를 입력하세요" required></li>
-        <button type="submit" class="submit-btn">가입하기</button>
+            <li><input type="text" name="username" class="text-field" placeholder="이름을 입력하세요" required></li>
+            <li><input type="password" name="userpassword" class="text-field" placeholder="비밀번호를 입력하세요" required></li>
+            <li><input type="password2" name="userpassword" class="text-field" placeholder="비밀번호를 다시 입력하세요" required>
+            </li>
+            <li><input type="email" name="email" class="text-field" placeholder="이메일을 입력하세요" required></li>
+            <li><input type="text" name="number" class="text-field" placeholder="확인번호 5자리를 입력하세요" required></li>
+            <button type="submit" class="submit-btn">가입하기</button>
         </form>
-    </div>    
+    </div>
 </body>
+
+</html>
