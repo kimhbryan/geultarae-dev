@@ -33,24 +33,26 @@ def mypage(request):
     cur_user = request.user
 
     chosen = cur_user.writings.strip().split()
+    idxs = {((int(i) - 1) // 3) + 1: i for i in chosen}
 
     datas = {}
-    for i in cur_user.writings:
-        w = get_object_or_404(Writing, pk=i)
-        title = w.title
-        date = f"{w.date_available.month}/{w.date_available.day}"
-        datas[(int(i) // 3) + 1] = {
-            "title": title,
-            "date": date,
-            "link": f"/writing/{i}"
-        }
 
-    for i in range(len(cur_user.writings) + 1, 15):
-        datas[i] = {
-            "title": "아직 선택하지 않음",
-            "date": "1/1",
-            "link": "#"
-        }
+    for i in range(1, 15):
+        if i in idxs.keys():
+            w = get_object_or_404(Writing, pk=idxs[i])
+            title = w.title
+            date = f"{w.date_available.month}/{w.date_available.day}"
+            datas[i] = {
+                "title": title,
+                "date": date,
+                "link": f"/writing/{idxs[i]}"
+            }
+        else:
+            datas[i] = {
+                "title": "아직 선택하지 않음",
+                "date": "1/1",
+                "link": "#"
+            }
 
     return render(request, 'mypage.html', {'datas': datas})
 
