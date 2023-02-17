@@ -32,6 +32,8 @@ def ask(request):
 def mypage(request):
     cur_user = request.user
 
+    chosen = cur_user.writings.strip().split()
+
     datas = {}
     for i in cur_user.writings:
         w = get_object_or_404(Writing, pk=i)
@@ -58,21 +60,24 @@ def writing(request, pk):
     w = get_object_or_404(Writing, pk=pk)
     current_user = request.user
 
+    chosen_list = current_user.writings.strip().split()
+
     def cannot_choose(id, chosen):
-        remaining = [i for i in range(1, 4) if i != id]
+        remainder = id % 3 + (3 if id % 3 == 0 else 0)
+        remaining = [i for i in range(1, 4) if i != remainder]
         for elm in remaining:
-            if str(((id - 1) // 3) + elm) in chosen:
+            if str(((id - 1) // 3) * 3 + elm) in chosen:
                 return True
         return False
 
     def already_chosen(id, chosen):
         return str(id) in chosen
 
-    if (not w.is_available and not already_chosen(pk, current_user.writings)) or (cannot_choose(pk, current_user.writings)):
+    if (not w.is_available and not already_chosen(pk, chosen_list)) or (cannot_choose(pk, chosen_list)):
         return HttpResponseRedirect(reverse('index'))
 
     if not already_chosen(pk, current_user.writings):
-        current_user.writings += str(pk)
+        current_user.writings += str(pk) + " "
         current_user.save()
 
     return render(request, 'writing.html', context={'writing': w})
@@ -83,10 +88,12 @@ def plot(request, pk):
     w = get_object_or_404(Writing, pk=pk)
     current_user = request.user
 
+    chosen_list = current_user.writings.strip().split()
+
     def already_chosen(id, chosen):
         return str(id) in chosen
 
-    if not already_chosen(pk, current_user.writings):
+    if not already_chosen(pk, chosen_list):
         return HttpResponseRedirect(reverse('index'))
 
     return render(request, 'plot.html', context={'writing': w})
