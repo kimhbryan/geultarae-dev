@@ -6,12 +6,18 @@
     <title>글타래 - {{ writing.title }}</title>
     {% load static %}
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
         @font-face {
             font-family: 'MaruBuri-Regular';
             src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/MaruBuri-Regular.woff') format('woff');
             font-weight: normal;
             font-style: normal;
         }
+        html {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
 
         head {
             display: inline-block;
@@ -125,7 +131,7 @@
 
         .writing_img {
             position: absolute;
-            top: 21%;
+            top: 12%;
             left: 0%;
             width: 100%;
             height: auto;
@@ -134,43 +140,43 @@
 
         .writing_title {
             position: absolute;
-            top: 16%;
-            left: 35%;
+            top: 44%;
+            left: 30%;
+            margin: auto;
             font-family: 'MaruBuri-Regular';
             color: black;
-            font-size: 3.5em;
-            text-align: center;
+            font-size: 2.5em;
             letter-spacing: 7px;
+            font-weight: bold;
         }
 
         body {
-            background-image: linear-gradient(to bottom, #e3e3e5 330px, white 330px);
+            background-image: linear-gradient(to bottom, #e3e3e5 200px, white 200px);
             background-size: 100% 100%;
             margin: 0;
             padding: 0;
         }
 
         .writing {
-            padding: 10% 0% 0% 35%;
-            margin: 10% 0 0 0;
-            font-family: 'MaruBuri-Regular';
+            padding: 10% 30% 0% 30%;
+            margin: 16% 0 0 0;
+            font-family: 'Noto Sans KR', sans-serif;
             color: black;
             font-size: 1.1em;
             text-align: left;
-            line-height: 2em;
+            line-height: 3em;
         }
-
         .story-btn {
             display: block;
             font-family: 'MaruBuri-Regular';
-            font-size: 0.8em;
+            font-size: 0.9em;
             border: 1.5px solid black;
             color: black;
             text-align: center;
             letter-spacing: 1px;
-            width: 8%;
-            padding: 12px 12px;
-            margin: 8% auto 12% auto;
+            width: 10%;
+            padding: 16px 12px;
+            margin: 10% auto 12% auto;
             background-color: transparent;
             cursor: pointer;
         }

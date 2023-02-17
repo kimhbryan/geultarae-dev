@@ -11,7 +11,12 @@
             font-weight: normal;
             font-style: normal;
         }
-
+        
+        html {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+         
         body {
             background-color: #e3e3e5;
             background-size: cover;
@@ -20,24 +25,26 @@
         .plot-title {
             font-family: 'MaruBuri-Regular';
             color: black;
-            font-size: 2em;
+            font-size: 1.8em;
             line-height: 0.6em;
             text-align: center;
-            margin-top: 8%;
+            margin-top: 10%;
             letter-spacing: 4px;
             font-weight: bold;
         }
-
-        .plot-story {
+        .plot-background {
             background-color: white;
-            font-family: 'MaruBuri-Regular';
+            margin: 14% 3% 5% 3%;
+        }
+        .plot-story {
+            
+            font-family: 'Noto Sans KR', sans-serif;
             color: black;
             font-size: 1em;
-            line-height: 1.2em;
-            text-align: left;
-            margin: 10% 3% 5% 3%;
-            font-weight: bold;
-            padding: 2% 2%;
+            line-height: 2.8em;
+            text-align: left; 
+            padding: 4% 12%;
+            padding-bottom: 12%;
         }
     </style>
 </head>
@@ -47,10 +54,12 @@
         <div class="plot-title">
             {{ writing.title }}
         </div>
-        <div class="plot-story">
-            {% autoescape off %}
-                {{ writing.plot }}
-            {% endautoescape %}
+        <div class="plot-background">
+            <div class="plot-story">
+                {% autoescape off %}
+                    {{ writing.plot }}
+                {% endautoescape %}
+            </div>
         </div>
     </div>
 </body>

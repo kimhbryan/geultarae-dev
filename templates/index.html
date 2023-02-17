@@ -12,7 +12,12 @@
             font-weight: normal;
             font-style: normal;
         }
-
+        
+        html {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
         head {
             display: inline-block;
         }
@@ -225,17 +230,17 @@
 
         #hint1 {
             position: relative;
-            top: 50%;
+            top: 48%;
         }
 
         #hint2 {
             position: relative;
-            top: 50%;
+            top: 46%;
         }
 
         #hint3 {
             position: relative;
-            top: 50%;
+            top: 48%;
         }
 
         .Img1:hover #hide1 {
@@ -321,7 +326,7 @@
                 </div>
             </div>
             <div><a href="writing/{{ id_1 }}" style="text-decoration:none"><button type="submit" id="Img1-btn"
-                        class="Img-btn"><b>첫번째 이야기</b></button></a></div>
+                        class="Img-btn"><b>첫 번째 이야기</b></button></a></div>
             <hr style="border: none; width: 60%; background-color: black; height: 1px; text-align: center;">
             <div class="Img2">
                 <img id="Img2" src="{% static 'image/엽서2.png' %}" alt="Image2">
@@ -330,7 +335,7 @@
                 </div>
             </div>
             <div><a href="writing/{{ id_2 }}" style="text-decoration:none"><button type="submit" id="Img2-btn"
-                        class="Img-btn"><b>두번째 이야기</b></button></a></div>
+                        class="Img-btn"><b>두 번째 이야기</b></button></a></div>
             <hr style="border: none; width: 60%; background-color: black; height: 1px; text-align: center;">
             <div class="Img3">
                 <img id="Img3" src="{% static 'image/엽서3.png' %}" alt="Image3">
@@ -339,7 +344,7 @@
                 </div>
             </div>
             <div><a href="writing/{{ id_3 }}" style="text-decoration:none"><button type="submit" id="Img3-btn"
-                        class="Img-btn"><b>세번째 이야기</b></button></a></div>
+                        class="Img-btn"><b>세 번째 이야기</b></button></a></div>
         </div>
     </div>
     <footer>
