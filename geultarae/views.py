@@ -49,7 +49,7 @@ def mypage(request):
             }
         else:
             datas[i] = {
-                "title": "아직 선택하지 않음",
+                "title": "선택하지 않음",
                 "date": "1/1",
                 "link": "#"
             }
