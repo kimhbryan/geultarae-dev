@@ -9,12 +9,17 @@ class Admin(UserAdmin):
     add_form = UserCreateForm
     form = UserModifyForm
     model = User
-    list_display = ["email", "username", "writings"]
+    list_display = ["username", "email", "writings"]
     fieldsets = (
         (None, {
             "fields": (
-                ["writings", "email"]
+                ["username", "email", "writings"]
             ),
+        }),
+    )
+    add_fieldsets = (
+        (None, {
+            'fields': ('email', 'password1', 'password2')
         }),
     )
 
