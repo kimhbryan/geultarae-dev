@@ -5,15 +5,17 @@ from .models import User
 
 
 class UserCreateForm(UserCreationForm):
-    class Meta:
-        model = User
-        fields = ("username", "email")
+    pass
+    # class Meta:
+    #     model = User
+    #     fields = ("username", "email")
 
 
 class UserModifyForm(UserChangeForm):
-    class Meta:
-        model = User
-        fields = ("username", "email")
+    pass
+    # class Meta:
+    #     model = User
+        # fields = ("username", "email")
 
 
 class AskForm(forms.Form):

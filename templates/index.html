@@ -12,12 +12,12 @@
             font-weight: normal;
             font-style: normal;
         }
-        
+
         html {
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-        
+
         head {
             display: inline-block;
         }
@@ -325,29 +325,44 @@
             <div class="Img1">
                 <img id="Img1" src="{% static 'image/엽서1.png' %}" alt="Image1">
                 <div id="hide1">
-                    <div id="hint1">힌트1</div>
+                    <div id="hint1">{{ writing1.hint }}</div>
                 </div>
             </div>
-            <div><a href="writing/{{ id_1 }}" style="text-decoration:none"><button type="submit" id="Img1-btn"
-                        class="Img-btn"><b>첫 번째 이야기</b></button></a></div>
+            <div>
+                <a href="writing/{{ writing1.id }}" style="text-decoration:none">
+                    <button type="submit" id="Img1-btn" class="Img-btn">
+                        <b>첫 번째 이야기</b>
+                    </button>
+                </a>
+            </div>
             <hr style="border: none; width: 60%; background-color: black; height: 1px; text-align: center;">
             <div class="Img2">
                 <img id="Img2" src="{% static 'image/엽서2.png' %}" alt="Image2">
                 <div id="hide2">
-                    <div id="hint2">힌트2</div>
+                    <div id="hint2">{{ writing2.hint}}</div>
                 </div>
             </div>
-            <div><a href="writing/{{ id_2 }}" style="text-decoration:none"><button type="submit" id="Img2-btn"
-                        class="Img-btn"><b>두 번째 이야기</b></button></a></div>
+            <div>
+                <a href="writing/{{ writing2.id }}" style="text-decoration:none">
+                    <button type="submit" id="Img2-btn" class="Img-btn">
+                        <b>두 번째 이야기</b>
+                    </button>
+                </a>
+            </div>
             <hr style="border: none; width: 60%; background-color: black; height: 1px; text-align: center;">
             <div class="Img3">
                 <img id="Img3" src="{% static 'image/엽서3.png' %}" alt="Image3">
                 <div id="hide3">
-                    <div id="hint3">힌트3</div>
+                    <div id="hint3">{{ writing3.hint }}</div>
                 </div>
             </div>
-            <div><a href="writing/{{ id_3 }}" style="text-decoration:none"><button type="submit" id="Img3-btn"
-                        class="Img-btn"><b>세 번째 이야기</b></button></a></div>
+            <div>
+                <a href="writing/{{ writing3.id }}" style="text-decoration:none">
+                    <button type="submit" id="Img3-btn" class="Img-btn">
+                        <b>세 번째 이야기</b>
+                    </button>
+                </a>
+            </div>
         </div>
     </div>
     <footer>

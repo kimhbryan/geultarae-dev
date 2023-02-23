@@ -13,12 +13,12 @@ from .models import Writing
 
 @login_required
 def index(request):
-    start_date = timezone.make_aware(datetime(2023, 2, 6, 17, 00, 00))
+    start_date = timezone.make_aware(datetime(2023, 2, 17, 17, 00, 00))
     days = (timezone.now() - start_date).days
+    base_id = 3 * days
     context = {
-        'id_1': (3 * days) + 1,
-        'id_2': (3 * days) + 2,
-        'id_3': (3 * days) + 3
+        f"writing{i-base_id}":
+        Writing.objects.get(pk=i) for i in range(base_id + 1, base_id + 4)
     }
     return render(request, 'index.html', context=context)
 
